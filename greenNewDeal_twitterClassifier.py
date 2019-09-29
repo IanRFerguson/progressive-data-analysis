@@ -18,16 +18,6 @@ try:
 except:
     print("\nError: Invalid Credentials\n")
     
-def sentimentAnalysis(text):
-    analysis = TextBlob(text)
-    
-    if analysis.sentiment.polarity >=0:
-        return 'Positive'
-        
-    else:
-        return 'Negative'
-    
-    
 created, name, location, text, likes, rts = [], [], [], [], [], []
 
 for tweet in tweepy.Cursor(api.search, q = '#GreenNewDeal -filter:retweets -filter:links', 
