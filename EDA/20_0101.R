@@ -1,3 +1,5 @@
+# STATEWISE FEAR OF SOCIAL CHANGE - What the Hell Happened 1/1/20
+
 library(tidyverse)
 
 # Load in "WTHH" data set from Data For Progress + YouGov Blue
