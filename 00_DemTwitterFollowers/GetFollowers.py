@@ -20,7 +20,7 @@ for candidate in dems:
         followers.append(clean_total)
 
     except:
-        print("Whoops! Account " + candidate " not found...")
+        print("Whoops! Account " + candidate + " not found...")
 
 # Column headers for data frame
 columns = ['Date', 'SANDERS', 'WARREN', 'STEYER', 'KLOBUCHAR', 'YANG', 'BUTTIGIEG']
