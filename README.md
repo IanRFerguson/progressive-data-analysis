@@ -5,5 +5,5 @@ Programs that collect / analyze public sentiments towards progressive policy age
 * Scripts tracking presidential candidates' Twitter presence
 
 
-## FunWithTweepy
+## 01_FunWithTweepy
 * Basic scraping functions for use with Tweepy package
