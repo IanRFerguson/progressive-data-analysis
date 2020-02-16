@@ -2,9 +2,10 @@ from bs4 import BeautifulSoup
 import requests
 import pandas as pd
 import datetime
+import os
 
-# Official twitter accounts for major Dem candidates ... sorry Mayor Bloomberg
-dems = ['@BernieSanders', '@ewarren', '@TomSteyer', '@amyklobuchar', '@AndrewYang', '@PeteButtigieg']
+# Official twitter accounts for major Dem candidates
+dems = ['@BernieSanders', '@ewarren', '@TomSteyer', '@amyklobuchar', '@AndrewYang', '@PeteButtigieg', '@JoeBiden', '@MikeBloomberg']
 followers = []
 
 # Scrape followers, add to empty list
@@ -23,7 +24,7 @@ for candidate in dems:
         print("Whoops! Account " + candidate + " not found...")
 
 # Column headers for data frame
-columns = ['Date', 'SANDERS', 'WARREN', 'STEYER', 'KLOBUCHAR', 'YANG', 'BUTTIGIEG']
+columns = ['Date', 'SANDERS', 'WARREN', 'STEYER', 'KLOBUCHAR', 'YANG', 'BUTTIGIEG', 'BIDEN', 'BLOOMBERG']
 
 # Grab today's date + add it to list of headers
 today = (datetime.datetime.now()).strftime("%x")
@@ -38,6 +39,20 @@ for i in range(len(columns)):
 
 demData = pd.DataFrame(dem_dict, index = [0])
 
-# Save dataframe to CSV file with today's date
+# Current working directory
+here = os.getcwd()
+
+# Format filename
 filename = (datetime.datetime.now()).strftime('%m%d') + '.csv'
-demData.to_csv(filename)
+
+# Save CSV to a new directory
+# If directory doesn't exist, make one!
+try:
+    demData.to_csv(os.path.join(here + "/Candidates on Twitter/" + filename))
+
+except:
+    os.mkdir("Candidates on Twitter")
+    print("\nCreating new directory ... \n")
+    demData.to_csv(os.path.join(here + "/Candidates on Twitter/" + filename))
+
+print("\nTwitter information logged!\n")
