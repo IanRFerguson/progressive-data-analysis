@@ -14,7 +14,7 @@ data <- read.csv(files[1])
 for (i in 2:length(files)) {
 
         a <- read.csv(files[i])
-        data <- rbind(data, a)
+        data <- dplyr::bind_rows(data,a)
 }
 
 # Drop first column (unneccesary)
@@ -29,8 +29,8 @@ tall.data %>%
         filter(Date == "02/16/20") %>% 
         ggplot(aes(x = Date, y = value, fill = variable)) +
         geom_bar(stat = "identity", position = "dodge") +
-        scale_fill_brewer(palette = "Greens", direction = -1) +
-        theme_minimal()
+        scale_fill_brewer(palette = "Greys", direction = -1) +
+        theme_dark()
 
 # Create new variable `twitter.increase` ... plot increaes in Twitter followers over the time period listed
 tall.data %>% 
@@ -45,6 +45,13 @@ tall.data %>%
         coord_flip() + 
         theme_minimal() +
         theme(legend.position = "")
+
+# Track percentage increase over time period ... perhaps more meaningful given differences in Twitter presence
+tall.data %>% 
+        group_by(variable) %>% 
+        summarise(twitter.increase = (max(value) - min(value)),
+                  pct.increase = (round(max(value) / min(value), 3) - 1)) %>% 
+        arrange(desc(pct.increase))
 
 
         
