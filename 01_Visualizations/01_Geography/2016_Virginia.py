@@ -20,19 +20,20 @@ os.chdir(here)
 
 # ---------------------- CLEANING ---------------------- #
 
-# Filter out only data from Virginia in 2016
+# Filter out only data from Virginia in 2016 and remove extraneous index information
 VA16 = data[data["year"] == 2016]
 VA16 = VA16[VA16["state"] == "Virginia"]
-
 VA16.reset_index(inplace=True)
 VA16.drop("index", axis=1, inplace=True)
 
+# Calculate % of vote share per candidate per county
 for index, val in enumerate(VA16["candidatevotes"]):
 
     tot = VA16["totalvotes"][index]
 
     VA16.loc[index, "vote_share"] = (val / tot)
 
+# Look at Clinton vote share only
 VA16 = VA16[VA16["candidate"] == "Hillary Clinton"]
 
 # ---------------------- PLOTTING ---------------------- #
