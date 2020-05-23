@@ -1,9 +1,7 @@
-# progressive-data-analysis
-Programs that collect / analyze public sentiments towards progressive policy agenda
+Tools for a progressive future
 
-## 00_DemTwitterFollowers
-* Scripts tracking presidential candidates' Twitter presence
+## 00_Twitter
+* Includes scripts for scraping targets' twitter followings
 
-
-## 01_FunWithTweepy
-* Basic scraping functions for use with Tweepy package
+## 01_Visualization
+* Tools include Likert scale visualizations, geoplotting, etc.
