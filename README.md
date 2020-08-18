@@ -5,3 +5,7 @@ Tools for a progressive future
 
 ## 01_Visualization
 * Tools include Likert scale visualizations, geoplotting, etc.
+
+## 02_DSA-SF
+* Helper scripts to assist with chapter function
+* All data de-identified
