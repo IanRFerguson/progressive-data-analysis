@@ -8,4 +8,3 @@ Tools for a progressive future
 
 ## 02_DSA-SF
 * Helper scripts to assist with chapter function
-* All data de-identified
