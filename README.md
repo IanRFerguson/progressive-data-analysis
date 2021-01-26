@@ -1,11 +1,10 @@
-Tools for a progressive future
+## Data-Acquisition
+--------
 
-## 00_Twitter
-* Includes scripts for scraping targets' twitter followings
+Tools to obtain and clean opinion data. These sources can be multi-modal (Twitter, surveys, databases, etc.)
 
-## 01_Visualization
-* Tools include Likert scale visualizations, geoplotting, etc.
 
-## 02_DSA-SF
-* Helper scripts to assist with chapter function
-* All data de-identified
+## Data-Visualization
+--------
+
+Scripts and resources to visualize data once it's been cleaned
